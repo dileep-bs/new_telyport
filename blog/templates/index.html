@@ -1,0 +1,86 @@
+ {% extends "base.html" %}
+
+    {% block title %}
+    Welcome to Blog
+    {% endblock %}
+
+    {% block content %}
+
+     {% load staticfiles %}
+    
+    <div class="container">
+
+      <div class="row justify-content-md-center">
+
+    <div class="col-md-15 pt-3">
+      <div class="container">
+       <div class="row">
+        <div class="col-md-8 mt-4 left">
+          {% for post in posts %}
+           <div class="card mb-4">
+              <div class="card-body">
+                <h2 class="card-title">{{post.title}}</h2>
+                <p class="card-text text-muted h6">{{ post.author }} | {{ post.publish}}</p>
+                <p class="card-text">{{post.excerpt | slice:":200" }}</p>
+                <img src="{{ post.post_Img.url }}" alt="img" height="250" width="520"><br><br>
+                <a href="{{post.get_absolute_url}}" class="btn btn-primary">Read More &rarr;</a><br><br>
+                <a href="#" class="btn btn-primary">Like</a>
+                <a href="#" class="btn btn-primary">Dislike</a>
+              </div>
+            </div>
+      {% endfor %}
+      </div>
+      {% block sidebar %} {% include 'sidebar.html' %} {% endblock sidebar %}
+    </div>
+      {% endblock %}
+    <!-- 
+         <button class="like"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
+                <button class="dislike"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i></button>
+<body>
+  <style type="text/css">
+  button.like{
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  line-heigth: 50px;
+  border-radius: 50%;
+  color: rgba(0,150,136 ,1);
+  background-color:rgba(38,166,154 ,0.3);
+  border-color: rgba(0,150,136 ,1);
+  border-width: 1px;
+  font-size: 15px;
+}
+
+button.dislike{
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  line-heigth: 50px;
+  border-radius: 50%;
+  color: rgba(255,82,82 ,1);
+  background-color: rgba(255,138,128 ,0.3);
+  border-color: rgba(255,82,82 ,1);
+  border-width: 1px;
+  font-size: 15px;
+}
+
+button.learnmore{
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: rgba(0,151,167 ,1);
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+}
+</style>
+</body> -->
+  
+
+
+
+
+
+
